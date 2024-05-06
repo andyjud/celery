@@ -1,0 +1,82 @@
+<wrapper class="h-[calc(100vh-80px)] pt-8 pb-4 px-4 w-full max-w-7xl mx-auto">
+
+    <h1>Messages</h1>
+
+    <div id='conversation' class="flex flex-col h-5/6 bg-white md:shadow-2xl md:rounded-2xl relative overflow-y-auto grow">
+        
+        <div id='inbox_messages' class="flex flex-col justify-end grow gap-6 px-4 md:px-10 py-8">
+            
+            <div class="flex gap-4 md:gap-6">
+                <a class="contents" href="/profile">
+                    <img class="w-10 h-10 md:w-14 md:h-14 object-cover rounded-full" src="https://pbs.twimg.com/profile_images/508601156767997952/fFTdKUf2_400x400.jpeg">
+                </a>
+                <div class="bg-white p-4 w-full rounded-xl border-2 border-gray-200">
+                    <div class="flex flex-col md:flex-row justify-between text-xs pb-3 text-zinc-500">
+                        <div>
+                            <span class="font-bold text-base text-black mr-1">Bart</span>@bart
+                        </div>
+                        <div>May 4, 2024, 11:11AM (1 hours ago)</div>
+                    </div>
+                    <div>Hi, got something important to ask you! Reply asap!</div>
+                </div>
+            </div>
+            <div class="flex gap-4 md:gap-6">
+                <a class="contents" href="/profile">
+                    <img class="w-10 h-10 md:w-14 md:h-14 object-cover rounded-full" src="https://img.icons8.com/color/48/cookie-monster.png">
+                </a>
+                <div class="bg-white p-4 w-full rounded-xl border-2 border-gray-200">
+                    <div class="flex flex-col md:flex-row justify-between text-xs pb-3 text-zinc-500">
+                        <div>
+                            <span class="font-bold text-base text-black mr-1">Pete</span>@pete
+                        </div>
+                        <div>May 4, 2024, 11:20AM (1 hours ago)</div>
+                    </div>
+                    <div>Just got the message. What's up?</div>
+                </div>
+            </div>
+            <div class="flex gap-4 md:gap-6">
+                <a class="contents" href="/profile">
+                    <img class="w-10 h-10 md:w-14 md:h-14 object-cover rounded-full" src="https://pbs.twimg.com/profile_images/508601156767997952/fFTdKUf2_400x400.jpeg">
+                </a>
+                <div class="bg-white p-4 w-full rounded-xl border-2 border-gray-200">
+                    <div class="flex flex-col md:flex-row justify-between text-xs pb-3 text-zinc-500">
+                        <div>
+                            <span class="font-bold text-base text-black mr-1">Bart</span>@bart
+                        </div>
+                        <div>May 4, 2024, 11:22AM (1 hours ago)</div>
+                    </div>
+                    <div>Pizza or Cookies tonight?</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sticky bottom-0 z-1 px-4 md:px-10 pb-10 pt-2 flex flex-col bg-white">
+            <div class="flex gap-4 md:gap-6">
+                <div class="contents">
+                    <img class="w-10 h-10 md:w-14 md:h-14 object-cover rounded-full" src="https://pbs.twimg.com/profile_images/508601156767997952/fFTdKUf2_400x400.jpeg">
+                </div>
+                <div class="w-full rounded-xl">
+                    <form method="POST" class="w-full">
+                        <div>
+                            <input type="text" name="body" placeholder="Add message ..." class="p-4 text-black" maxlength="300" autofocus="" required="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+         
+    </div>
+</wrapper>
+
+
+<script>
+    function scrollToBottom() {
+            const container = document.getElementById('conversation');
+            container.scrollTop = container.scrollHeight;
+        }
+
+    window.onload = function() {
+        scrollToBottom();
+    };
+</script>
