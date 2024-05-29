@@ -2,9 +2,9 @@
 
     <h1 class="mb-8">Message Board</h1>
 
-    <div id="messageboard" class="grid grid-cols-4 h-5/6 bg-white md:shadow-2xl md:rounded-2xl relative overflow-y-auto grow">
+    <div id="messageboard" class="grid grid-cols-4 h-5/6 bg-white md:shadow-2xl md:rounded-2xl relative">
         
-        <div id="messages" class="col-span-3 flex flex-col justify-end grow gap-6 px-4 md:px-10 py-8">
+        <div id="messages" class="col-span-3 flex flex-col grow gap-6 px-4 md:px-10 py-8 overflow-y-auto h-full">
             
             <div class="flex gap-4 md:gap-6">
                 <a class="contents" href="">
@@ -127,7 +127,7 @@
 
 <script>
     function scrollToBottom() {
-            const container = document.getElementById('messageboard');
+            const container = document.getElementById('messages');
             container.scrollTop = container.scrollHeight;
         }
 
