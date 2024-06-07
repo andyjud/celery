@@ -5,6 +5,7 @@ from django.core.mail import EmailMessage
 import threading
 from .models import *
 from .forms import *
+from .tasks import *
 
 @login_required
 def messageboard_view(request):
@@ -51,10 +52,11 @@ def send_email(message):
         subject = f'New Message from {message.author.profile.name}'
         body = f'{message.author.profile.name}: {message.body}\n\nRegards from\nMy Message Board'
         
-        email_thread = threading.Thread(target=send_email_thread, args=(subject, body, subscriber))
-        email_thread.start()
+        send_email_task.delay(subject, body, subscriber.email)
+        
+#       email_thread = threading.Thread(target=send_email_thread, args=(subject, body, subscriber))
+#       email_thread.start()
 
-
-def send_email_thread(subject, body, subscriber):        
-    email = EmailMessage(subject, body, to=[subscriber.email])
-    email.send()
+# def send_email_thread(subject, body, subscriber):        
+#     email = EmailMessage(subject, body, to=[subscriber.email])
+#     email.send()
