@@ -5,3 +5,4 @@ This is the repository of the Celery project with the technologies:
 - Celery
 - Redis
 - Flower
+- Beat
