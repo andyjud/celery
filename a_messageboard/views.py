@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.mail import EmailMessage
 import threading
+from django.contrib.auth.decorators import user_passes_test
 from .models import *
 from .forms import *
 from .tasks import *
@@ -60,3 +61,10 @@ def send_email(message):
 # def send_email_thread(subject, body, subscriber):        
 #     email = EmailMessage(subject, body, to=[subscriber.email])
 #     email.send()
+
+def is_staff(user):
+    return user.is_staff
+
+@user_passes_test(is_staff)
+def newsletter(request):
+    return render(request, 'a_messageboard/newsletter.html')
